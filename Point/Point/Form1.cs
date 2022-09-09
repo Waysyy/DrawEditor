@@ -283,7 +283,12 @@ namespace Point
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            pictureBox1.MouseClick += GetCoordinate;
+            if(checkBox1.Checked)
+            {
+                pictureBox1.MouseMove += GetCoordinate;
+            }
+            
+            //pictureBox1.MouseClick += GetCoordinate;
             this.pictureBox1.MouseUp += new MouseEventHandler(this.pictureBox1_MouseUp);
             this.pictureBox1.MouseDown += new MouseEventHandler(this.pictureBox1_MouseDown);
             this.pictureBox1.MouseMove += new MouseEventHandler(this.pictureBox1_MouseMove);
