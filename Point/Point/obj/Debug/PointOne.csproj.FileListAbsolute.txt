@@ -1,0 +1,10 @@
+A:\Users\ntart\source\repos\Point\Point\obj\Debug\PointOne.csproj.AssemblyReference.cache
+A:\Users\ntart\source\repos\Point\Point\obj\Debug\Point.Form1.resources
+A:\Users\ntart\source\repos\Point\Point\obj\Debug\Point.Properties.Resources.resources
+A:\Users\ntart\source\repos\Point\Point\obj\Debug\PointOne.csproj.GenerateResource.cache
+A:\Users\ntart\source\repos\Point\Point\obj\Debug\PointOne.csproj.CoreCompileInputs.cache
+A:\Users\ntart\source\repos\Point\Point\bin\Debug\Point.exe.config
+A:\Users\ntart\source\repos\Point\Point\bin\Debug\Point.exe
+A:\Users\ntart\source\repos\Point\Point\bin\Debug\Point.pdb
+A:\Users\ntart\source\repos\Point\Point\obj\Debug\Point.exe
+A:\Users\ntart\source\repos\Point\Point\obj\Debug\Point.pdb
