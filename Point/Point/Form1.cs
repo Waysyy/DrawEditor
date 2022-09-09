@@ -236,6 +236,7 @@ namespace Point
 
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
+            
             if (radioButton3.Checked)
             {
                 if (!MouseCheck)
@@ -283,10 +284,9 @@ namespace Point
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            if(checkBox1.Checked)
-            {
+
+            
                 pictureBox1.MouseMove += GetCoordinate;
-            }
             
             //pictureBox1.MouseClick += GetCoordinate;
             this.pictureBox1.MouseUp += new MouseEventHandler(this.pictureBox1_MouseUp);
