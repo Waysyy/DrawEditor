@@ -13,7 +13,19 @@ namespace Point
 {
     public partial class Form1 : Form
     {
+        private bool MouseCheck = false;
+        private Point point = new Point(2);
+        private Polynom polynom = new Polynom(3);
+        private Line line = new Line(2);
+        public int[] xLine = new int[6];
+        public int[] yLine = new int[6];
+        public int resetLine = 0;
+        
 
+        Bitmap map = new Bitmap(100, 100);
+        Graphics g;
+        Pen pen = new Pen(Color.Black, 10f);
+        SolidBrush Brush = new SolidBrush(Color.Black);
         public Form1()
         {
             InitializeComponent();
@@ -55,18 +67,31 @@ namespace Point
             {
                 return points;
             }
+
+            
         }
 
         private class Polynom
         {
             public System.Drawing.Point[] pointsPolynom;
             private int index = 0;
-
+            private int index2 = 0;
+            public System.Drawing.Point[] coordPolynom;
             public Polynom(int size)
             {
                 if (size <= 0) { size = 3; }
                 pointsPolynom = new System.Drawing.Point[size];
+                coordPolynom = new System.Drawing.Point[3];
+            }
 
+            public void addCoordinatePolynom(int x, int y)
+            {
+                if (index2 >= 6)
+                {
+                    index2 = 0;
+                }
+                coordPolynom[index2] = new System.Drawing.Point(x, y);
+                ++index2;
             }
 
             public void SetPoint(int x, int y)
@@ -81,6 +106,7 @@ namespace Point
             public void ResetPoint()
             {
                 index = 0;
+                index2 = 0;
             }
             public int CountPoint()
             {
@@ -131,19 +157,7 @@ namespace Point
             }
         }
 
-        private bool MouseCheck = false;
-        private Point point = new Point(2);
-        private Polynom polynom = new Polynom(3);
-        private Line line = new Line(2);
-        public int[] xLine = new int[6];
-        public int[] yLine = new int[6];
-        public int resetLine = 0;
-
-
-        Bitmap map = new Bitmap(100, 100);
-        Graphics g;
-        Pen pen = new Pen(Color.Black, 10f);
-        SolidBrush Brush = new SolidBrush(Color.Black);
+        
 
         private void SizeMap()
         {
@@ -321,6 +335,64 @@ namespace Point
             Color col = Color.White;
             g.Clear(col);
         }
-        
+
+        public bool buttonDraw = false;
+        public bool buttonAdd = false;
+        List<int> ArrCoordinates = new List<int>();
+        void DrawCoordinate()
+        {
+            //var ArrCoordinates = new List<int>();
+            if (buttonAdd == true)
+            {
+                buttonAdd = false;
+                if (textBox1.Text != "" && textBox4.Text != "" && ArrCoordinates.Count !=6)
+                {
+                    ArrCoordinates.Add(Convert.ToInt32(textBox1.Text));
+                    ArrCoordinates.Add(Convert.ToInt32(textBox4.Text));
+                    polynom.addCoordinatePolynom(Convert.ToInt32(textBox1.Text), Convert.ToInt32(textBox4.Text));
+                    textBox1.Text = "";
+                    textBox4.Text = "";
+                    
+                }
+            }
+            if (buttonDraw == true)
+            {
+                buttonDraw = false;
+                if (ArrCoordinates.Count == 4) //line
+                {
+                    SolidBrush Brush = new SolidBrush(Color.Black);
+
+                    g.DrawLine(pen, ArrCoordinates[0], ArrCoordinates[1], ArrCoordinates[2], ArrCoordinates[3]);
+                    pictureBox1.Image = map;
+                }
+                if (ArrCoordinates.Count == 2) //dot
+                {
+                    SolidBrush Brush = new SolidBrush(Color.Black);
+                    g.FillEllipse(Brush, ArrCoordinates[0], ArrCoordinates[1], 20, 20);
+                    pictureBox1.Image = map;
+                }
+                if (ArrCoordinates.Count == 6) //polynom
+                {
+                    SolidBrush Brush = new SolidBrush(Color.Black);
+                    g.DrawPolygon(pen, polynom.coordPolynom);
+                    pictureBox1.Image = map;
+                }
+                ArrCoordinates.Clear();
+                line.ResetPoint();
+                polynom.ResetPoint();
+            }
+        }
+
+        private void button6_Click(object sender, EventArgs e) //Add Coord
+        {
+            buttonAdd = true;
+            DrawCoordinate();
+        }
+
+        private void button3_Click(object sender, EventArgs e) //Draw
+        {
+            buttonDraw = true;
+            DrawCoordinate();
+        }
     }
 }
