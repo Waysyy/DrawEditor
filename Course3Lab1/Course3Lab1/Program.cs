@@ -8,6 +8,38 @@ namespace Course3Lab1
     {
         private double[,] matrix;
 
+        static void SearchMin(double[,] matrix)
+        {
+            Program p = new Program();
+            double MIN = 1000;
+            double tmp = 1;
+            double min = 0;
+            double Column = 0;
+            for (int i = 0; i < 5; ++i)
+            {
+                for (int j = 0; j <= 3; ++j)
+                {
+                    if (j > 2)
+                    {
+                        min = tmp;
+                        tmp = 1;
+
+                        if (min < MIN)
+                        {
+                            MIN = min;
+                            Column = j+1;
+                        }
+                    }
+                    if(j <= 2)
+                    { tmp *= matrix[j, i]; }
+                    
+                    
+                    
+                }
+            }
+            Console.WriteLine("Минимальное произведение: "+ Convert.ToString(MIN) + "\n Столбец № " + Convert.ToString(Column));
+        }
+
         static void Input()
         {
             try
@@ -30,6 +62,7 @@ namespace Course3Lab1
                         Console.Write(String.Format("{0,3}", p.matrix[i, j]));
                     Console.WriteLine();
                 }
+                SearchMin(p.matrix);
             }
             catch
             {
@@ -65,6 +98,7 @@ namespace Course3Lab1
                     Console.Write(String.Format("{0,3}", p.matrix[i, j]));
                     Console.WriteLine();
                 }
+                SearchMin(p.matrix);
             }
             catch
             {
@@ -85,10 +119,12 @@ namespace Course3Lab1
                 if (choice == 1)
                 {
                     Input();
+                    
                 }
                 else if (choice == 2)
                 {
                     RandomInput();
+                    
                 }
                 else
                 {
