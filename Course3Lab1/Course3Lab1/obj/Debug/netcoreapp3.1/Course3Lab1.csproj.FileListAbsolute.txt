@@ -1,0 +1,14 @@
+A:\Users\ntart\source\repos\Course3Lab1\Course3Lab1\bin\Debug\netcoreapp3.1\Course3Lab1.exe
+A:\Users\ntart\source\repos\Course3Lab1\Course3Lab1\bin\Debug\netcoreapp3.1\Course3Lab1.deps.json
+A:\Users\ntart\source\repos\Course3Lab1\Course3Lab1\bin\Debug\netcoreapp3.1\Course3Lab1.runtimeconfig.json
+A:\Users\ntart\source\repos\Course3Lab1\Course3Lab1\bin\Debug\netcoreapp3.1\Course3Lab1.runtimeconfig.dev.json
+A:\Users\ntart\source\repos\Course3Lab1\Course3Lab1\bin\Debug\netcoreapp3.1\Course3Lab1.dll
+A:\Users\ntart\source\repos\Course3Lab1\Course3Lab1\bin\Debug\netcoreapp3.1\Course3Lab1.pdb
+A:\Users\ntart\source\repos\Course3Lab1\Course3Lab1\obj\Debug\netcoreapp3.1\Course3Lab1.AssemblyInfoInputs.cache
+A:\Users\ntart\source\repos\Course3Lab1\Course3Lab1\obj\Debug\netcoreapp3.1\Course3Lab1.AssemblyInfo.cs
+A:\Users\ntart\source\repos\Course3Lab1\Course3Lab1\obj\Debug\netcoreapp3.1\Course3Lab1.csproj.CoreCompileInputs.cache
+A:\Users\ntart\source\repos\Course3Lab1\Course3Lab1\obj\Debug\netcoreapp3.1\Course3Lab1.dll
+A:\Users\ntart\source\repos\Course3Lab1\Course3Lab1\obj\Debug\netcoreapp3.1\Course3Lab1.pdb
+A:\Users\ntart\source\repos\Course3Lab1\Course3Lab1\obj\Debug\netcoreapp3.1\Course3Lab1.genruntimeconfig.cache
+A:\Users\ntart\source\repos\Course3Lab1\Course3Lab1\obj\Debug\netcoreapp3.1\Course3Lab1.csproj.AssemblyReference.cache
+A:\Users\ntart\source\repos\Course3Lab1\Course3Lab1\obj\Debug\netcoreapp3.1\Course3Lab1.GeneratedMSBuildEditorConfig.editorconfig
