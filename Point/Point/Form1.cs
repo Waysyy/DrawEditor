@@ -30,7 +30,7 @@ namespace Point
         {
             InitializeComponent();
             SizeMap();
-
+            
         }
         private class Point
         {
@@ -89,13 +89,15 @@ namespace Point
             private int index = 0;
             private int index2 = 0;
             public System.Drawing.Point[] coordPolynom;
+            
             public Polynom(int size)
             {
+                
                 try
                 {
-                    if (size <= 0) { size = 3; }
+                    //if (size <= 0) { size = 9; }
                     pointsPolynom = new System.Drawing.Point[size];
-                    coordPolynom = new System.Drawing.Point[3];
+                    
                 }
                 catch (Exception ex)
                 {
@@ -103,11 +105,15 @@ namespace Point
                 }
             }
 
+            public void SizeChange(int size)
+            {
+                coordPolynom = new System.Drawing.Point[size];
+            }
             public void addCoordinatePolynom(int x, int y)
             {
                 try
                 {
-                    if (index2 >= 6)
+                    if (index2 >= 9)
                     {
                         index2 = 0;
                     }
@@ -320,6 +326,17 @@ namespace Point
         {
             try
             {
+                StringBuilder sb = new StringBuilder();
+                double ratio = 1.0 * pictureBox1.Width;
+                int x = (int)(e.X / ratio);
+                int y = (int)(e.Y / ratio);
+
+                sb.Append("X ");
+                sb.Append(e.X);
+                sb.Append("  Y ");
+                sb.Append(e.Y);
+
+                coordinate.Text = sb.ToString();
                 if (radioButton3.Checked)
                 {
                     if (!MouseCheck)
@@ -338,17 +355,7 @@ namespace Point
                         point.SetPoint(e.X, e.Y);
                     }
                 }
-                StringBuilder sb = new StringBuilder();
-                double ratio = 1.0 * pictureBox1.Width;
-                int x = (int)(e.X / ratio);
-                int y = (int)(e.Y / ratio);
-
-                sb.Append("X ");
-                sb.Append(e.X);
-                sb.Append("  Y ");
-                sb.Append(e.Y);
-               
-                coordinate.Text = sb.ToString();
+                
             }
             catch (Exception ex)
             {
@@ -437,6 +444,7 @@ namespace Point
         public bool buttonDraw = false;
         public bool buttonAdd = false;
         List<int> ArrCoordinates = new List<int>();
+       
         void DrawCoordinate()
         {
             try
@@ -444,8 +452,13 @@ namespace Point
                 if (buttonAdd == true)
                 {
                     buttonAdd = false;
-                    if (textBox1.Text != "" && textBox4.Text != "" && ArrCoordinates.Count != 6)
+                    if (ArrCoordinates.Count < 1)
                     {
+                        polynom.SizeChange(Convert.ToInt32(numericUpDown1.Value));
+                    }
+                    if (textBox1.Text != "" && textBox4.Text != "" && ArrCoordinates.Count != 18)
+                    {
+                        
                         ArrCoordinates.Add(Convert.ToInt32(textBox1.Text));
                         ArrCoordinates.Add(Convert.ToInt32(textBox4.Text));
                         polynom.addCoordinatePolynom(Convert.ToInt32(textBox1.Text), Convert.ToInt32(textBox4.Text));
@@ -463,22 +476,34 @@ namespace Point
 
                         g.DrawLine(pen, ArrCoordinates[0], ArrCoordinates[1], ArrCoordinates[2], ArrCoordinates[3]);
                         pictureBox1.Image = map;
+                        line.ResetPoint();
+                        ArrCoordinates.Clear();
                     }
                     if (ArrCoordinates.Count == 2) //dot
                     {
                         SolidBrush Brush = new SolidBrush(Color.Black);
                         g.FillEllipse(Brush, ArrCoordinates[0], ArrCoordinates[1], 20, 20);
                         pictureBox1.Image = map;
+                        ArrCoordinates.Clear();
                     }
-                    if (ArrCoordinates.Count == 6) //polynom
+                    if (ArrCoordinates.Count >= 6 && ArrCoordinates.Count < 19) //polynom
                     {
-                        SolidBrush Brush = new SolidBrush(Color.Black);
-                        g.DrawPolygon(pen, polynom.coordPolynom);
-                        pictureBox1.Image = map;
+                        if(ArrCoordinates.Count == numericUpDown1.Value *2)
+                        {
+                            SolidBrush Brush = new SolidBrush(Color.Black);
+                            g.DrawPolygon(pen, polynom.coordPolynom);
+                            pictureBox1.Image = map;
+                            ArrCoordinates.Clear();
+                            polynom.ResetPoint();
+                            
+                        }
+                        else
+                        {
+                            MessageBox.Show("Вы ввели " + ArrCoordinates.Count/2 + " угла(ов), из " + numericUpDown1.Value  + " необходимых");
+                        }
+                        
                     }
-                    ArrCoordinates.Clear();
-                    line.ResetPoint();
-                    polynom.ResetPoint();
+                    
                 }
             }
             catch (Exception ex)
@@ -511,6 +536,11 @@ namespace Point
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
