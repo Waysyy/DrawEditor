@@ -1,0 +1,10 @@
+A:\Users\ntart\source\repos\Matrix3Course\Matrix3Course\bin\Debug\Matrix3Course.exe.config
+A:\Users\ntart\source\repos\Matrix3Course\Matrix3Course\bin\Debug\Matrix3Course.exe
+A:\Users\ntart\source\repos\Matrix3Course\Matrix3Course\bin\Debug\Matrix3Course.pdb
+A:\Users\ntart\source\repos\Matrix3Course\Matrix3Course\obj\Debug\Matrix3Course.csproj.AssemblyReference.cache
+A:\Users\ntart\source\repos\Matrix3Course\Matrix3Course\obj\Debug\Matrix3Course.Form1.resources
+A:\Users\ntart\source\repos\Matrix3Course\Matrix3Course\obj\Debug\Matrix3Course.Properties.Resources.resources
+A:\Users\ntart\source\repos\Matrix3Course\Matrix3Course\obj\Debug\Matrix3Course.csproj.GenerateResource.cache
+A:\Users\ntart\source\repos\Matrix3Course\Matrix3Course\obj\Debug\Matrix3Course.csproj.CoreCompileInputs.cache
+A:\Users\ntart\source\repos\Matrix3Course\Matrix3Course\obj\Debug\Matrix3Course.exe
+A:\Users\ntart\source\repos\Matrix3Course\Matrix3Course\obj\Debug\Matrix3Course.pdb
