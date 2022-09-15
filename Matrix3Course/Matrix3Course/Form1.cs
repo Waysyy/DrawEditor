@@ -46,25 +46,31 @@ namespace Matrix3Course
                     {
                         if (dataGridView1.Rows[i].Cells[j].Value != null && Convert.ToInt32(dataGridView1.Rows[i].Cells[j].Value) <= 10 && Convert.ToInt32(dataGridView1.Rows[i].Cells[j].Value) >= -10)
                             matrixRead[i, j] = dataGridView1.Rows[i].Cells[j].Value.ToString();
-                        
-                        
+                                                
                     }
                 }
 
                 double[,] matrixConvert = new double[matrixRead.GetLength(0), matrixRead.GetLength(1)];
-
-                for (int i = 0; i < matrixRead.GetLength(0); i++)
-                {
-                    for (int j = 0; j < matrixRead.GetLength(1); j++)
+                
+                    for (int i = 0; i < matrixRead.GetLength(0); i++)
                     {
-                        double.TryParse(matrixRead[i, j], out matrixConvert[i, j]);
+                        for (int j = 0; j < matrixRead.GetLength(1); j++)
+                        {
+                        //if (Convert.ToInt32(matrixRead[i, j]) >= 10 && Convert.ToInt32(matrixRead[i, j]) <= -10)
+                        //{
+                            double.TryParse(matrixRead[i, j], out matrixConvert[i, j]);
+                        //}
+                        }
                     }
-                }
-                matrix = matrixConvert;
+                    matrix = matrixConvert;
+
+                
+               
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                
             }
         }
         
@@ -109,15 +115,16 @@ namespace Matrix3Course
                     for (int j = 0; j < dataGridView1.ColumnCount; ++j)
                     {
                        
-                        if (dataGridView1.Rows[i].Cells[j].Value == null && Convert.ToInt32(dataGridView1.Rows[i].Cells[j].Value) <= 10 && Convert.ToInt32(dataGridView1.Rows[i].Cells[j].Value) >= -10)
+                        if (dataGridView1.Rows[i].Cells[j].Value == null || Convert.ToInt32(dataGridView1.Rows[i].Cells[j].Value) <= 10 || Convert.ToInt32(dataGridView1.Rows[i].Cells[j].Value) >= -10)
                         {
                             diapazon = false;
                             
                         }
+                        
                     }
                 }
                 if(diapazon == false)
-                    MessageBox.Show("Диапазон от -10 до 10");
+                    MessageBox.Show("Диапазон от -10 до 10 \nПоставьте 5 баллов в десятичной системе счисления в инфоупро, по дисциплине <<Высокоуровневые методы информатики и программирования>>  за первую лабу по ");
                 if (diapazon == true)
                 {
                     label2.Text = (Convert.ToString(MIN) + "\n");
@@ -130,7 +137,7 @@ namespace Matrix3Course
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                //MessageBox.Show(ex.Message);
             }
 
 
@@ -164,8 +171,7 @@ namespace Matrix3Course
                 }
                 catch
                 {
-                    Console.WriteLine("Ошибочка вышла, давайте сначала\n");
-                    System.Diagnostics.Process.Start(System.AppDomain.CurrentDomain.FriendlyName);
+                    
 
                 }
             }
