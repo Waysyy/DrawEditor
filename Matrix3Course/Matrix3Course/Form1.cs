@@ -215,10 +215,12 @@ namespace Matrix3Course
             const string disallowed = @"[^0-9-]";
             var newText = Regex.Replace(e.FormattedValue.ToString(), disallowed, string.Empty);
             if (dataGridView1.Rows[e.RowIndex].IsNewRow) return;
+               // dataGridView1.Rows[e.RowIndex].ErrorText = "Некорректный символ!";
             if (string.CompareOrdinal(e.FormattedValue.ToString(), newText) == 0) return;
             e.Cancel = true;
-            dataGridView1.Rows[e.RowIndex].ErrorText = "Некорректный символ!";
-                }
+
+            
+            }
             catch
             {
                 Console.WriteLine("Ошибочка вышла, давайте сначала\n");

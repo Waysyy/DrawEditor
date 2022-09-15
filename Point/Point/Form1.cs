@@ -503,7 +503,8 @@ namespace Point
                         }
                         
                     }
-                    
+                    ArrCoordinates.Clear();
+                    polynom.ResetPoint();
                 }
             }
             catch (Exception ex)
